@@ -1,0 +1,25 @@
+Character+Enemy+NPC:φτιαχνει Αντιγραφο του Character και καποια random για npc.
+
+Skill: Τι θα κανει; θα εχουν παντα τις ιδιες επιθεσεις η θα αλλαζουν; πως θα αλλαζουν;
+
+Bonus: class, equiped objects??, area, weakness??
+   return bonus
+
+Attacks??: απο skill?
+
+level: αναλογα με την διαφορα στο level επιπλεον damage η απλα αυξανεται το hp?
+
+Inventory
+
+Turn??
+
+Counter
+
+DamageCal: καλει bonus 
+   character.health -= enemy.attack + enemy.attack*bonus
+
+
+
+στο τελος experience: αυξανεται αναλογα με το τι/ποσα εκανε ο καθενας η παντα το ιδιο;
+
+οταν θα παιρνει καποιος level  θα αυξανονται ολα κατα ενα χ αριθμο η θα διαλεγει ο παιχτης;
