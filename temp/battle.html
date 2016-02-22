@@ -1,0 +1,97 @@
+<html>
+<body onload="Stats()">
+<style>
+#enemy_st{
+	position: absolute;
+   top: 15px;
+   right: 95px;
+   text-align: center;
+   width: 100%;
+}
+#enemy2_st{
+	position: absolute;
+   top: 95px;
+   right: 95px;
+   text-align: center;
+   width: 100%;
+}
+#player st{
+	position: absolute;
+   top: 15px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+</style>
+<script>
+var player ={name:"Player",attack:50,stamina:50,health: 200 /*speed*/};
+var enemy ={name:"Enemy1",attack:50,stamina:50,health: 200};
+var enemy2 ={name:"Enemy2",attack:40,stamina:60,health: 220};
+var counter=1;
+function Turn(){
+	counter++;
+	document.getElementById("turn").innerHTML = counter;
+	enemy["stamina"] -= 5;
+	player["health"] -= enemy["attack"];
+	enemy2["stamina"] -= 5;
+	player["health"] -= enemy2["attack"];
+	Stats();
+	if (player["health"] <= 0){
+		alert("You Lost");
+	}
+}
+function Stats(){
+	var stats = player["name"].concat("<br>","Health: ",player["health"],"<br>",
+	"Stamina: ",player["stamina"]);
+	document.getElementById("player st").innerHTML = stats;
+	var Estats = enemy["name"].concat("<br>","Health: ",enemy["health"],"<br>",
+	"Stamina: ",enemy["stamina"]);
+	document.getElementById("enemy_st").innerHTML = Estats;
+	var Estats2 = enemy2["name"].concat("<br>","Health: ",enemy2["health"],"<br>",
+	"Stamina: ",enemy2["stamina"]);
+	document.getElementById("enemy2_st").innerHTML = Estats2;
+}
+function Damage()
+{
+	//var x= document.getElementById("enemy1");
+	//if(/*x.checked == true*/){
+		player["stamina"] -= 5;
+		enemy["health"] -= player["attack"];
+	//}
+	//var x= document.getElementById("enemy2");
+	//if(/*x.checked == true*/){
+		player["stamina"] -= 5;
+		enemy2["health"] -= player["attack"];
+	//}
+	Stats();
+	if (enemy["health"] <= 0 && enemy2["health"] <= 0){
+		alert("You won");
+	}
+}
+function bRun(){
+	var x = Math.floor((Math.random() * 10) + 1);
+	if (((x == 4 || x == 5 || x == 8) && player["stamina"]>=40)||x == 4){
+		alert("You fled");
+		//leaves battle
+		//stamina + speed
+	}
+}
+//<input id= "enemy1" type=checkbox>Enemy1</input>
+//<input id= "enemy2" type=checkbox>Enemy2</input>
+function ChkBox() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    document.body.appendChild(x);
+}
+</script>
+<form>
+<p id= "player st"></p>
+<p id= "enemy_st"></p>
+<p id= "enemy2_st"></p>
+<input type = "button" value = "Attack" onclick = "Damage()">
+<input type = "button" value = "Run" onclick = "bRun()">
+<input type = "button" value = "End Turn" onclick = "Turn()">
+<p id= "turn"></p>
+</form>
+</body>
+</html>
