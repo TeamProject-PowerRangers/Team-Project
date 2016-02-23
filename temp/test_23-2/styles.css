@@ -1,0 +1,71 @@
+#enemy_st{
+	position: absolute;
+   top: 15px;
+   left: -85px;
+   text-align: center;
+   width: 100%;
+}
+#enemy2_st{
+	position: absolute;
+   top: 260px;
+   left: -85px;
+   text-align: center;
+   width: 100%;
+}
+#enemy1{
+	position: absolute;
+   top: 5px;
+   right: 95px;
+   text-align: center;
+   width: 100%;
+}
+#enemy2{
+	position: absolute;
+   top: 250px;
+   right: 95px;
+   text-align: center;
+   width: 100%;
+}
+#player st{
+	position: absolute;
+   top: 15px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+#e1hCanvas{
+	position: absolute;
+   top: 160px;
+   left: 455px;
+   text-align: center;
+}
+#e1sCanvas{
+	position: absolute;
+   top: 182px;
+   left: 455px;
+   text-align: center;
+}
+#e2hCanvas{
+	position: absolute;
+   top: 410px;
+   left: 455px;
+   text-align: center;
+}
+#e2sCanvas{
+	position: absolute;
+   top: 432px;
+   left: 455px;
+   text-align: center;
+}
+#e1mCanvas{
+	position: absolute;
+   top: 204px;
+   left: 455px;
+   text-align: center;
+}
+#e2mCanvas{
+	position: absolute;
+   top: 454px;
+   left: 455px;
+   text-align: center;
+}

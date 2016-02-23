@@ -1,0 +1,39 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload="Stats(),secondPassed()">
+<script src="functions.js"></script>
+<p id= "player st"></p>
+<canvas id="phCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas><br>
+<canvas id="psCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas><br>
+<canvas id="pmCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas>
+<p id= "enemy_st"></p>
+<canvas id="e1hCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas><br>
+<canvas id="e1sCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas>
+<canvas id="e1mCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas>
+<p id= "enemy2_st"></p>
+<canvas id="e2hCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas><br>
+<canvas id="e2sCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas>
+<canvas id="e2mCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+</canvas>
+<form>
+<input type = "button" value = "Run" onclick = "bRun()">
+<input type = "button" value = "End Turn" onclick = "Turn()">
+<input type=checkbox id= "enemy1">
+<input type=checkbox id= "enemy2">
+<input type = "button" value = "Attack" onclick = "Attack()">
+<input type = "button" value = "Mana Attack" onclick = "manaAttack()">
+<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
+<p id= "turn"></p>
+</form>
+</body>
+</html>
