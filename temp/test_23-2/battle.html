@@ -4,36 +4,37 @@
 </head>
 <body onload="Stats(),secondPassed()">
 <script src="functions.js"></script>
-<p id= "player st"></p>
-<canvas id="phCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<p id= "player_info"></p>
+<canvas id="player_health_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas><br>
-<canvas id="psCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="player_stamina_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas><br>
-<canvas id="pmCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="player_mana_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas>
-<p id= "enemy_st"></p>
-<canvas id="e1hCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<p id= "enemy1_info"></p>
+<canvas id="enemy1_health_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas><br>
-<canvas id="e1sCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="enemy1_stamina_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas>
-<canvas id="e1mCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="enemy1_mana_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas>
-<p id= "enemy2_st"></p>
-<canvas id="e2hCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<p id= "enemy2_info"></p>
+<canvas id="enemy2_health_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas><br>
-<canvas id="e2sCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="enemy2_stamina_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas>
-<canvas id="e2mCanvas" width="200" height="20" style="border:1px solid #c3c3c3;">
+<canvas id="enemy2_mana_bar" width="200" height="20" style="border:1px solid #c3c3c3;">
 </canvas>
-<form>
-<input type = "button" value = "Run" onclick = "bRun()">
-<input type = "button" value = "End Turn" onclick = "Turn()">
-<input type=checkbox id= "enemy1">
-<input type=checkbox id= "enemy2">
-<input type = "button" value = "Attack" onclick = "Attack()">
-<input type = "button" value = "Mana Attack" onclick = "manaAttack()">
+<form id= "battle_buttons">
+<input type = "button" value = "Run" onclick = "run_from_Battle()">
+<input type = "button" value = "End Turn" onclick = "next_Turn()">
+<input type = "button" value = "Attack 2 points" onclick = "stamina_Attack()">
+<input type = "button" value = "Mana Attack 1 point" onclick = "mana_Attack()"><br>
+<p id= "battle_log"></p>
 <div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
 <p id= "turn"></p>
 </form>
+<input type=checkbox id= "enemy1">
+<input type=checkbox id= "enemy2">
 </body>
 </html>
