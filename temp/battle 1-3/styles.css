@@ -1,0 +1,127 @@
+/*Battle*/#battle_buttons{
+	position: absolute;
+   top: 225px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#level_g{
+	position: absolute;
+   top: 295px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#battle_log{
+	position: absolute;
+   top: 315px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#profile_button{
+	position: absolute;
+   top: 315px;
+   left: 395px;
+   text-align: left;
+}
+/*body{
+	background-image: url("testback.jpg");
+	background-color: #cccccc;
+	background-repeat: repeat-y;
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 100%;
+	/*filter: alpha(Opacity=90);
+	opacity: 0.5;
+}*/
+/*Profile*/#battle_frame{
+	position: absolute;
+   top: 15px;
+   left: 295px;
+   text-align: left;
+}
+/*Battle*/#player_info{
+	position: absolute;
+   top: 15px;
+   left: 95px;
+   text-align: left;
+}
+/*Battle*/#player_health_bar{
+	position: absolute;
+   top: 155px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_stamina_bar{
+	position: absolute;
+   top: 175px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_mana_bar{
+	position: absolute;
+   top: 195px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#enemy1{
+	position: absolute;
+   top: 5px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_info{
+	position: absolute;
+   top: 15px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_health_bar{
+	position: absolute;
+   top: 160px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy1_stamina_bar{
+	position: absolute;
+   top: 182px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy1_mana_bar{
+	position: absolute;
+   top: 204px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy2{
+	position: absolute;
+   top: 250px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_info{
+	position: absolute;
+   top: 260px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_health_bar{
+	position: absolute;
+   top: 410px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy2_stamina_bar{
+	position: absolute;
+   top: 432px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy2_mana_bar{
+	position: absolute;
+   top: 454px;
+   left: 465px;
+   text-align: center;
+}
