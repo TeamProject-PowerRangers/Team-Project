@@ -1,0 +1,45 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload="Stats(),secondPassed()">
+<script src="functions.js"></script>
+<p id= "player_info"></p>
+<svg id = "player_health_bar" width="200" height="20">
+  <rect id = "current_player_health_bar" width="200" height="20" 
+  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+</svg>
+<svg id = "player_stamina_bar" width="200" height="20">
+  <rect id = "current_player_stamina_bar" width="200" height="20" 
+  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+</svg>
+<svg id = "player_mana_bar" width="200" height="20">
+  <rect id = "current_player_mana_bar" width="200" height="20"
+  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+</svg>
+<p id= "enemy1_info"></p>
+<svg id = "enemy1_health_bar" width="200" height="20">
+  <rect id = "current_enemy1_health_bar" width="200" height="20" 
+  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+</svg>
+<p id= "enemy2_info"></p>
+<svg id = "enemy2_health_bar" width="200" height="20">
+  <rect id = "current_enemy2_health_bar" width="200" height="20" 
+  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+</svg>
+<form id= "battle_buttons">
+<input type = "button" value = "Run" onclick = "run_from_Battle()">
+<input type = "button" value = "End Turn" onclick = "next_Turn()">
+<input type = "button" value = "Attack 2 points" onclick = "stamina_Attack()">
+<input type = "button" value = "Mana Attack 1 point" onclick = "mana_Attack()"><br>
+
+<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
+<p id= "turn"></p><br>
+</form>
+<p id = "level_g"></p>
+<p id= "battle_log"></p>
+<button type="button" id = "profile_button" onclick="window.location.href='profile.htMl'" style="visibility:hidden">Back to Profile.</button>
+<input type=checkbox id= "enemy1">
+<input type=checkbox id= "enemy2">
+</body>
+</html>
