@@ -1,0 +1,121 @@
+/*Battle*/#battle_buttons{
+	position: absolute;
+   top: 225px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#level_g{
+	position: absolute;
+   top: 295px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#battle_log{
+	position: absolute;
+   top: 315px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#profile_button{
+	position: absolute;
+   top: 315px;
+   left: 395px;
+   text-align: left;
+}
+/*Profile*/#battle_frame{
+	position: absolute;
+   top: 15px;
+   left: 295px;
+   text-align: left;
+}
+/*Battle*/#player_info{
+	position: absolute;
+   top: 15px;
+   left: 95px;
+   text-align: left;
+}
+/*Battle*/#player_health_bar{
+	position: absolute;
+   top: 155px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_stamina_bar{
+	position: absolute;
+   top: 175px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_mana_bar{
+	position: absolute;
+   top: 195px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#enemy1{
+	position: absolute;
+   top: 5px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_info{
+	position: absolute;
+   top: 15px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_health_bar{
+	position: absolute;
+   top: 160px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy2{
+	position: absolute;
+   top: 250px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_info{
+	position: absolute;
+   top: 260px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_health_bar{
+	position: absolute;
+   top: 410px;
+   left: 465px;
+   text-align: center;
+}
+/*Map*/#map_image{
+	position: absolute;
+	top: 0px;
+   left: 0px;
+	/*opacity: 0.0;*/
+}
+/*Map*/#map_canvas{
+	position: absolute;
+	top: 0px;
+   left: 0px;
+}
+#map_Move_Player {
+	position: relative;
+	top: 0px;
+   left: 0px;
+  width: 1000px;
+  height: 1000px;
+  background-image: "map.png";
+}
+#moving_player {
+	top: 500px;
+   left: 500px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color : red;
+  background-image: 'default_avatar.gif';
+}

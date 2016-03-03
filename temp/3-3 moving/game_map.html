@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload = "loadMap()">
+<script src="functions.js"></script>
+<canvas id="map_canvas" height="1000" width="1000px"></canvas>
+<map name = "map_map">
+<area id = "country" shape = "poly" coords = "280,90,440,100,340,130,80,140,100,190,400,190,360,220,180,230,240,230" onclick = "myMove()">
+</map>
+<div id ="map_Move_Player">
+<div id ="moving_player"></div>
+</div>
+<img id = "map_image" src="map.png" alt="Map" usemap="#map_map" width = "1000px" height ="1000px">
+</body>
+</html>
