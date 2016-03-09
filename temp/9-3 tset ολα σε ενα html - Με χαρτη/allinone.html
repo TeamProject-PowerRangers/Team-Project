@@ -1,0 +1,79 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload="Stats(),secondPassed()">
+<!--PROFILE-->
+ <fieldset id = "Profile_field" style = "border:0px;">
+	<p>Profile</p>
+	<input type = "button" value = "Map" onclick = "show_Map()">
+ </fieldset>
+<!--MAP-->
+ <fieldset id = "Map_field" style="display:none;border:0px;">
+	<img style="display:none" src="grass.png">
+	<img style="display:none" src="sand.png">
+	<img style="display:none" src="water.png">
+	<img style="display:none" src="rock.png">
+	<img style="display:none" src="ice.png">
+	<img style="display:none" src="dirt.png">
+
+	<canvas id="map_canvas" height="700" width="1000px"></canvas>
+	<map name = "map_map">
+	<area id = "country2" shape = "poly" coords = "280,90,440,100,340,130,80,140,100,190,400,190,360,220,180,230,240,230" onclick = "myMove(200,100)">
+	<area id = "country1" shape = "poly" coords = "550,25,550,35,530,45,530,55,830,55,630,65,810,65,610,75,770,75,570,85,690,85,730,85,785,85,745,85,625,85,825,75,705,75,585,75,685,65,585,65,845,55,865,45,885,35,865,25" onclick = "myMove(700,30)">
+	<area id = "country3" shape = "poly" coords = "930,315,910,315,890,315,870,315,850,325,810,335,830,335,810,345,790,355,770,365,770,375,750,385,750,395,770,405,770,415,750,425,770,425,750,435,770,435,790,435,810,445,830,445,850,445,870,445,870,435,890,435,910,435,930,435" onclick = "myMove(870,350)">
+	<area id = "country4" shape = "poly" coords = "-10,335,-10,345,10,345,30,345,30,355,30,365,50,365,50,375,70,375,70,385,90,385,90,395,110,395,130,405,130,415,150,415,150,425,170,425,190,425,210,435,210,445,190,455,210,455,170,465,190,475,190,485,170,495,190,495,150,505,130,515,150,515,90,525,110,525,90,535,90,545,90,555,110,555,90,565,110,565,90,575,70,585,70,595,30,605,50,605,30,615,-10,625,10,625,-10,635" onclick = "myMove(20,400)">
+	<!--<area id = "country5" shape = "poly" coords = "280,90,440,100,340,130,80,140,100,190,400,190,360,220,180,230,240,230" onclick = "myMove(200,100)">
+	-->
+	</map>
+	<div id ="map_Move_Player">
+	<div id ="moving_player"></div>
+	</div>
+	<img id = "map_image" src="map.png" alt="Map" usemap="#map_map" width = "1000px" height ="700px">
+ </fieldset>
+<!--BATTLE-->
+ <fieldset id = "Battle_field" style="display:none;border:0px;">
+	<p id= "player_info"></p>
+	<svg id = "player_health_bar" width="200" height="20">
+	  <rect id = "current_player_health_bar" width="200" height="20" 
+	  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+	</svg>
+	<svg id = "player_stamina_bar" width="200" height="20">
+	  <rect id = "current_player_stamina_bar" width="200" height="20" 
+	  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+	</svg>
+	<svg id = "player_mana_bar" width="200" height="20">
+	  <rect id = "current_player_mana_bar" width="200" height="20"
+	  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+	</svg>
+	<p id= "enemy1_info"></p>
+	<svg id = "enemy1_health_bar" width="200" height="20">
+	  <rect id = "current_enemy1_health_bar" width="200" height="20" 
+	  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+	</svg>
+	<p id= "enemy2_info"></p>
+	<svg id = "enemy2_health_bar" width="200" height="20">
+	  <rect id = "current_enemy2_health_bar" width="200" height="20" 
+	  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+	</svg>
+	<form id= "battle_buttons">
+	<input type = "button" value = "Run" onclick = "run_from_Battle()">
+	<input type = "button" value = "End Turn" onclick = "next_Turn()">
+	<input type = "button" value = "Attack 2 points" onclick = "stamina_Attack()">
+	<input type = "button" value = "Mana Attack 1 point" onclick = "mana_Attack()"><br>
+
+	<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
+	<p id= "turn"></p><br>
+	</form>
+	<p id = "level_g"></p>
+	<p id= "battle_log"></p>
+	<button type="button" id = "next_Phase_button" onclick="next_Phase()" style="visibility:hidden">Back to Profile.</button>
+	<input type=checkbox id= "enemy1">
+	<input type=checkbox id= "enemy2">
+ </fieldset>
+ <script src="functions.js"></script>
+ <script>
+	window.onload = loadMap;
+</script>
+</body>
+</html>
