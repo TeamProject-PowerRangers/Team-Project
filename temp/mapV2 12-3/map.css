@@ -1,0 +1,27 @@
+#greece{
+	position: absolute;
+	top: 250px;
+	left: 300px;
+}
+#china{
+	position: absolute;
+	top: 550px;
+	left: 500px;
+}
+#japan{
+	position: absolute;
+	top: 100px;
+	left: 600px;
+}
+#sea_map{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#moving_player {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-image: url('default_avatar.gif');
+  background-size: 25px 25px;
+}

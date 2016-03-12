@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="map.css">
+</head>
+<body>
+<map name = "greece_map">
+  <area shape="rect" coords="0,0,138,200" alt="greece" onmouseover="getElementById('greece').setAttribute('src', 'greece_hover.png');" onmouseout="getElementById('greece').setAttribute('src', 'greece.png');" onclick = "myMove(330,370)">
+</map>
+<map name = "japan_map">
+  <area shape="rect" coords="0,0,200,150" alt="japan" onmouseover="getElementById('japan').setAttribute('src', 'japan_hover.png');" onmouseout="getElementById('japan').setAttribute('src', 'japan.png');" onclick = "myMove(690,190)">
+</map>
+<map name = "china_map">
+  <area shape="rect" coords="0,0,200,162" alt="china" onmouseover="getElementById('china').setAttribute('src', 'china_hover.png');" onmouseout="getElementById('china').setAttribute('src', 'china.png');" onclick = "myMove(580,620)">
+</map>
+<img id = "sea" src="sea_map.png" alt="Map" width = "900px" height ="900px">
+<img id = "greece" src="greece.png" alt="Map" usemap="#greece_map" width = "138px" height ="200px">
+<img id = "japan" src="japan.png" alt="Map" usemap="#japan_map" width = "200px" height ="150px">
+<!--<img id = "egypt" src="egypt.png" alt="Map" width = "299px" height ="432px">-->
+<img id = "china" src="china.png" alt="Map" usemap="#china_map" width = "200px" height ="162px">
+<!--<img id = "greece" src="greece.png" alt="Map" width = "299px" height ="432px" >-->
+<div id ="moving_player"></div>
+<script>
+var playerX = 700;
+var playerY = 700;
+
+function myMove(countryX,countryY) {
+	var elem = document.getElementById("moving_player");
+	var id = setInterval(frame, 20);
+	function frame() {
+		if (countryY == playerY && countryX == playerX) {
+			clearInterval(id);
+		} else {
+			if(countryX > playerX){
+				playerX += 1;
+			}else if(countryX < playerX){
+				playerX -= 1;
+			}
+			if(countryY > playerY){
+				playerY += 1;
+			}else if(countryY < playerY){
+				playerY -= 1;
+			}
+			elem.style.top = playerY + 'px'; 
+			elem.style.left = playerX + 'px'; 
+		}
+	}
+}
+</script>
+</body>
+</html>
