@@ -4,9 +4,11 @@
 <link rel="stylesheet" type="text/css" href="map.css">
 </head>
 <body>
-<map name = "greece_map">
+<div id = "tooltip_greece" class="tooltip"><map name = "greece_map">
   <area shape="rect" coords="0,0,138,200" alt="greece" onmouseover="getElementById('greece').setAttribute('src', 'greece_hover.png');" onmouseout="getElementById('greece').setAttribute('src', 'greece.png');" onclick = "myMove(330,370)">
 </map>
+  <span class="tooltiptext">Greece</span>
+</div>
 <map name = "japan_map">
   <area shape="rect" coords="0,0,200,150" alt="japan" onmouseover="getElementById('japan').setAttribute('src', 'japan_hover.png');" onmouseout="getElementById('japan').setAttribute('src', 'japan.png');" onclick = "myMove(690,190)">
 </map>
