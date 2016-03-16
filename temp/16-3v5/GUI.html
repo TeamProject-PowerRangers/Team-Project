@@ -1,0 +1,137 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script>
+		window.addEventListener("load", function(){
+			var load_screen = document.getElementById("load_screen");
+			document.body.removeChild(load_screen);
+		});
+	</script>
+</head>
+<body onload = "stats_R(),secondPassed()">
+	<div id="load_screen"><div id="loading">Loading Game</div></div>
+	<!--START-->
+	<fieldset id = "Start_of_Game_field" style="display:none;border:0px;">
+		<button onclick = "show_Create_Character();">New Game</button>
+	</fieldset>
+	<!--CHARACTER-->
+	<fieldset id = "Character_creation_field" style="display:none;border:0px;">
+		<fieldset id = 'Country_Selection' style="display:none;border:0px;">
+			<img src="greece.png" alt="Mountain View" style="width:50px;height:80px;" onclick = "chosen_country('greece');">
+		</fieldset>
+		<fieldset id = 'God_Selection' style="display:none;border:0px;">
+			<img src="Hades.png" alt="Mountain View" style="width:50px;height:80px;" onclick = "chosen_god('Hades god of the underworld');">
+			<img src="Zeus.png" alt="Mountain View" style="width:50px;height:80px;" onclick = "chosen_god('Zeus god of Olympus');">
+		</fieldset>
+		<form id = 'character_creation_form'>
+			<fieldset id = 'Class_Selection' style="display:none;border:0px;">
+			  <p id="checklist"></p>
+			  <u>Class</u>
+			  <br>
+			  <input type="radio" id = 'opt_warrior' name="characterClass" value="warrior">Warrior
+			  <input type="radio" id = 'opt_sorcerer' name="characterClass" value="sorcerer">Sorcerer
+			  <input type="radio" id = 'opt_brawler' name="characterClass" value="brawler">Brawler
+			  <input type="radio" id = 'opt_healer' name="characterClass" value="healer">Healer
+			  <br><br>
+			  <u>Name</u><br>
+			  <input type="text" id = 'form_name' name="name" required><br>
+			  <input type="submit" value="Create Character" onclick = 'create_Character(event)'>
+		  </fieldset>
+		</form>
+	 </fieldset>
+	 <!--PROFILE-->
+	 <fieldset id = "Profile_field" style="display:none;border:0px;">
+		<p>Profile</p>
+		<input type = "button" value = "Map" onclick = "show_Map()"><br><br>
+		<svg id = "profile_health_bar" width="200" height="20">
+		  <rect id = "current_profile_player_health_bar" width="200" height="20" 
+		  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<div>+10 Health in: <span id="h_countdown" class="timer"></span></div>
+		<svg id = "profile_stamina_bar" width="200" height="20">
+		  <rect id = "current_profile_player_stamina_bar" width="200" height="20" 
+		  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<div>+10 Stamina in: <span id="s_countdown" class="timer"></span></div>
+		<svg id = "profile_mana_bar" width="200" height="20">
+		  <rect id = "current_profile_player_mana_bar" width="200" height="20"
+		  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<div>+10 Mana in : <span id="m_countdown" class="timer"></span></div>
+	 </fieldset>
+	 <!--MAP-->
+	 <fieldset id = "Map_field" style="border:0px;">
+		<div id = "tooltip_greece" class="tooltip"><map name = "greece_map">
+		  <area shape="rect" coords="0,0,138,200" alt="greece" onmouseover="getElementById('greece').setAttribute('src', 'greece_hover.png');" onmouseout="getElementById('greece').setAttribute('src', 'greece.png');" onclick = "travellingPlayer(170,190,'greece')">
+		</map>
+		  <span class="tooltiptext">Greece</span>
+		</div>
+		<div id = "tooltip_japan" class="tooltip"><map name = "japan_map">
+		  <area shape="rect" coords="0,0,200,150" alt="japan" onmouseover="getElementById('japan').setAttribute('src', 'japan_hover.png');" onmouseout="getElementById('japan').setAttribute('src', 'japan.png');" onclick = "travellingPlayer(520,350,'japan')">
+		</map>
+		  <span class="tooltiptext">Japan</span>
+		</div>
+		<div id = "tooltip_china" class="tooltip"><map name = "china_map">
+		  <area shape="rect" coords="0,0,200,162" alt="china" onmouseover="getElementById('china').setAttribute('src', 'china_hover.png');" onmouseout="getElementById('china').setAttribute('src', 'china.png');" onclick = "travellingPlayer(160,680,'china')">
+		</map>
+		  <span class="tooltiptext">China</span>
+		</div>
+		<div id = "tooltip_egypt" class="tooltip"><map name = "egypt_map">
+		  <area shape="rect" coords="0,0,200,141" alt="egypt" onmouseover="getElementById('egypt').setAttribute('src', 'egypt_hover.png');" onmouseout="getElementById('egypt').setAttribute('src', 'egypt.png');" onclick = "travellingPlayer(690,617,'egypt')">
+		</map>
+		  <span class="tooltiptext">Egypt</span>
+		</div>
+		<div id = "tooltip_scandinavia" class="tooltip"><map name = "scandinavia_map">
+		  <area shape="rect" coords="0,0,151,200" alt="scandinavia" onmouseover="getElementById('scandinavia').setAttribute('src', 'scandinavia_hover.png');" onmouseout="getElementById('scandinavia').setAttribute('src', 'scandinavia.png');" onclick = "travellingPlayer(740,220,'scandinavia')">
+		</map>
+		  <span class="tooltiptext">Scandinavia</span>
+		</div>
+		<img id = "sea_map" src="sea_map.png" alt="Map" width = "900px" height ="900px">
+		<img id = "otherland" src="otherland.png" alt="otherlandMap" width = "900px" height ="900px">
+		<img id = "greece" src="greece.png" alt="Map" usemap="#greece_map" width = "138px" height ="200px">
+		<img id = "japan" src="japan.png" alt="Map" usemap="#japan_map" width = "200px" height ="150px">
+		<img id = "egypt" src="egypt.png" alt="Map" usemap="#egypt_map" width = "200px" height ="141px">
+		<img id = "china" src="china.png" alt="Map" usemap="#china_map" width = "200px" height ="162px">
+		<img id = "scandinavia" src="scandinavia.png" alt="Map" usemap="#scandinavia_map" width = "151px" height ="200px">
+		<div id ="moving_player"></div>
+	 </fieldset>
+	<!--BATTLE-->
+	<fieldset id = "Battle_field" style="display:none;border:0px;">
+		<p id= "player_info"></p>
+		<svg id = "player_health_bar" width="200" height="20">
+		  <rect id = "current_player_health_bar" width="200" height="20" 
+		  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<svg id = "player_stamina_bar" width="200" height="20">
+		  <rect id = "current_player_stamina_bar" width="200" height="20" 
+		  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<svg id = "player_mana_bar" width="200" height="20">
+		  <rect id = "current_player_mana_bar" width="200" height="20"
+		  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<p id= "enemy1_info"></p>
+		<svg id = "enemy1_health_bar" width="200" height="20">
+		  <rect id = "current_enemy1_health_bar" width="200" height="20" 
+		  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<p id= "enemy2_info"></p>
+		<svg id = "enemy2_health_bar" width="200" height="20">
+		  <rect id = "current_enemy2_health_bar" width="200" height="20" 
+		  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+		</svg>
+		<form id= "battle_buttons">
+		<input type = "button" value = "Run" onclick = "run_from_Battle()">
+		<input type = "button" value = "End Turn" onclick = "next_Turn()"><br>
+
+		<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
+		<p id= "turn"></p><br>
+		</form>
+		<p id= "battle_log"></p><br>
+		<p id = "level_g"></p>
+		<button type="button" id = "next_Phase_button" onclick="next_Phase()" style="visibility:hidden">Back</button>
+		<input type=checkbox id= "enemy1">
+		<input type=checkbox id= "enemy2">
+	 </fieldset>
+	 <script src = "functions.js"></script>
+</body>
