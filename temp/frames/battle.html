@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<fieldset id = "Battle_field" style="display:none;border:0px;">
+			<p id= "player_info"></p>
+			<svg id = "player_health_bar" width="200" height="20">
+			  <rect id = "current_player_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<svg id = "player_stamina_bar" width="200" height="20">
+			  <rect id = "current_player_stamina_bar" width="200" height="20" 
+			  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<svg id = "player_mana_bar" width="200" height="20">
+			  <rect id = "current_player_mana_bar" width="200" height="20"
+			  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<p id= "enemy1_info"></p>
+			<svg id = "enemy1_health_bar" width="200" height="20">
+			  <rect id = "current_enemy1_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<p id= "enemy2_info"></p>
+			<svg id = "enemy2_health_bar" width="200" height="20">
+			  <rect id = "current_enemy2_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<p id= "enemy0_info"></p>
+			<svg id = "enemy0_health_bar" width="200" height="20">
+			  <rect id = "current_enemy0_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<p id= "enemy3_info"></p>
+			<svg id = "enemy3_health_bar" width="200" height="20">
+			  <rect id = "current_enemy3_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<form id= "battle_buttons">
+			<input type = "button" value = "Run" onclick = "parent.java.run_from_Battle()">
+			<input type = "button" value = "End Turn" onclick = "parent.java.next_Turn()">
+			<input type = "button" value = "Stamina Attack" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.staminaAttack)">
+			<input type = "button" value = "Mana Attack" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.manaAttack)">
+			<input type = "button" value = "Heal" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.healAttack)"><br>
+			
+			<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
+			<p id= "turn"></p><br>
+			</form>
+			<p id= "battle_log"></p><br>
+			<p id = "level_g"></p>
+			<button type="button" id = "next_Phase_button" onclick="parent.java.next_Phase()" style="visibility:hidden">Back</button>
+			<input type=checkbox id= "enemy1" style="visibility:hidden">
+			<input type=checkbox id= "enemy2" style="visibility:hidden">
+			<input type=checkbox id= "enemy3" style="visibility:hidden">
+			<input type=checkbox id= "enemy0" style="visibility:hidden">
+		</fieldset>
+	</body>
+</html>

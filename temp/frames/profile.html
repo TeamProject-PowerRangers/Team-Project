@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		</script>
+	</head>
+	<body>
+		 <fieldset id = "Profile_field" style="display:none;border:0px;">
+			<p>Profile</p>
+			<input type = "button" value = "Map" onclick = "parent.java.show_Map()">
+			<input type = "button" value = "Health" onclick = "parent.java.more_health()">
+            <input type = "button" value = "Attacks" onclick = "parent.java.show_Attack_Manager()"><br><br>
+			<svg id = "profile_health_bar" width="200" height="20">
+			  <rect id = "current_profile_player_health_bar" width="200" height="20" 
+			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<div>+10 Health in: <span id="h_countdown" class="timer"></span></div>
+			<svg id = "profile_stamina_bar" width="200" height="20">
+			  <rect id = "current_profile_player_stamina_bar" width="200" height="20" 
+			  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<div>+10 Stamina in: <span id="s_countdown" class="timer"></span></div>
+			<svg id = "profile_mana_bar" width="200" height="20">
+			  <rect id = "current_profile_player_mana_bar" width="200" height="20"
+			  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+			</svg>
+			<div>+10 Mana in : <span id="m_countdown" class="timer"></span></div>
+		</fieldset><br><br>
+        <fieldset id = "attack_manager_field" style="display:none;border:0px;">
+            <form id = 'attack_type_form'>
+                <input type="radio" id = 'opt_stamina' name="staminaAttack" value="stamina">staminaAttack
+                <input type="radio" id = 'opt_mana' name="manaAttack" value="mana">manaAttack
+                <input type="radio" id = 'opt_heal' name="healAttack" value="heal">healAttack
+                <input type="submit" value="Submit" onclick = 'parent.java.load_next_Form(event,"attack_type_form","set_attacks")'>
+            </form><br><br><br><br>
+            <form id = 'choose_w_b' style="display:none;border:0px;">
+                <input type="radio" id = 'opt_warrior' name="warrior" value="warrior">warrior
+                <input type="radio" id = 'opt_brawler' name="brawler" value="brawler">brawler
+                <input type="submit" value="Submit" onclick = 'parent.java.load_next_Form(event,"choose_w_b","set_attacks")'>
+            </form>
+            <form id = 'set_attacks' name = 'skillList' style="display:none;border:0px;">
+                <select id = 'skills' multiple name="lstValue" size="5">
+                <option value="empty"></select>
+            </form>
+        </fieldset>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form id = 'character_creation_form'>
+        <input type="radio" id = 'opt_stamina' name="staminaAttack" value="stamina">staminaAttack
+        <input type="radio" id = 'opt_mana' name="manaAttack" value="mana">manaAttack
+        <input type="radio" id = 'opt_heal' name="healAttack" value="heal">healAttack
+        <input type="submit" value="Submit" onclick = 'addValue(event,"fdfdf")'>
+    </form><br><br><br><br>
+    <form id = 'character_creation_form'>
+        <input type="radio" id = 'opt_warrior' name="warrior" value="warrior">warrior
+        <input type="radio" id = 'opt_brawler' name="brawler" value="brawler">brawler
+        <input type="submit" value="Submit" onclick = 'addValue(event,"dfdfdfgjfjfgfgff")'>
+    </form>
+    <form id='' name = 'skillList'>
+        <select id = 'skills' multiple name="lstValue" size="5">
+        <option value="empty"></select>
+    </form>
+    <script>
+    var i = 0;
+    function addValue(e,skillname) {
+        e.preventDefault();
+       var v = skillname;
+       // get the TextBox Value and assign it into the variable
+       AddOpt = new Option(v, v);
+       document.skillList.lstValue.options[i++] = AddOpt;
+       return true;
+    }
+    </script>
+</body>
+</html>

@@ -55,6 +55,24 @@
    left: 95px;
    text-align: center;
 }
+/*Battle*/#enemy0{
+	position: absolute;
+   top: 5px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy0_info{
+	position: absolute;
+   top: 15px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy0_health_bar{
+	position: absolute;
+   top: 160px;
+   left: 765px;
+   text-align: center;
+}
 /*Battle*/#enemy1{
 	position: absolute;
    top: 5px;
@@ -89,6 +107,24 @@
 	position: absolute;
    top: 410px;
    left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy3{
+	position: absolute;
+   top: 250px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy3_info{
+	position: absolute;
+   top: 260px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy3_health_bar{
+	position: absolute;
+   top: 410px;
+   left: 765px;
    text-align: center;
 }
 #greece{
@@ -133,6 +169,11 @@
   background-image: url('default_avatar.gif');
   background-size: 25px 25px;
 }
+#God_Selection{
+	position: absolute;
+    top: 260px;
+	left: 50px;
+}
 #tooltip_greece{
 	position: absolute;
     top: 286px;
@@ -157,6 +198,31 @@
 	position: absolute;
 	top: 220px;
 	left: 790px;
+}
+#tooltip_Country_selection_greece{
+	position: absolute;
+    top: 50px;
+	left: 50px;
+}
+#tooltip_Country_selection_japan{
+	position: absolute;
+    top: 100px;
+	left: 190px;
+}
+#tooltip_Country_selection_china{
+	position: absolute;
+    top: 88px;
+	left: 392px;
+}
+#tooltip_Country_selection_egypt{
+	position: absolute;
+    top: 109px;
+	left: 594px;
+}
+#tooltip_Country_selection_scandinavia{
+	position: absolute;
+	top: 50px;
+	left: 796px;
 }
 body{
 	background-color: #FF99CC;
@@ -193,19 +259,4 @@ body{
 }
 .tooltip:hover .tooltiptext {
     visibility: visible;
-}
-div#load_screen{
-	background: #000;
-	opacity: 1;
-	position: fixed;
-    z-index:10;
-	top: 0px;
-	width: 100%;
-	height: 1600px;
-}
-div#load_screen > div#loading{
-	color:#FFF;
-	width:120px;
-	height:24px;
-	margin: 300px auto;
 }
