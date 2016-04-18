@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+        <meta charset="utf-8"/>
+	</head>
+	<body>
+		<fieldset id = "Character_creation_field" style="border:0px;">
+            <div id="bg">
+                <img src="Arena_Battle_Background.jpeg" alt="">
+            </div>            
+			<fieldset id = 'Country_Selection' style="border:0px;position:absolute;">
+				<div id = "tooltip_Country_selection_greece" class="tooltip">
+					<img src="greece.png" alt="Greece" style="width:138px;height:200px;" onclick = "parent.java.chosen_country('greece');">
+					<span class="tooltiptext">Greece text</span>
+				</div>
+				<div id = "tooltip_Country_selection_japan" style="position:absolute;" class="tooltip">
+					<img src="japan.png" alt="Japan" style="width:200px;height:150px;" onclick = "parent.java.chosen_country('japan');">
+					<span class="tooltiptext">Japan text</span>
+				</div>
+				<div id = "tooltip_Country_selection_egypt" style="position:absolute;" class="tooltip">
+					<img src="egypt.png" alt="Egypt" style="width:200px;height:141px;" onclick = "parent.java.chosen_country('egypt');">
+					<span class="tooltiptext">Egypt text</span>
+				</div>
+				<div id = "tooltip_Country_selection_china" style="position:absolute;" class="tooltip">
+					<img src="china.png" alt="China" style="width:200px;height:162px;" onclick = "parent.java.chosen_country('china');">
+					<span class="tooltiptext">China text</span>
+				</div>
+				<div id = "tooltip_Country_selection_scandinavia" style="position:absolute;" class="tooltip">
+					<img src="scandinavia.png" alt="Scandinavia" style="width:151px;height:200px;" onclick = "parent.java.chosen_country('scandinavia');">
+					<span class="tooltiptext">Scandinavia text</span>
+				</div>
+			</fieldset><br><br>
+			<fieldset id = 'God_Selection' style="display:none;border:0px;position:absolute;">
+				<fieldset id = 'Greece_God_Selection' style="display:none;border:0px;">
+					<img src="Hades.png" alt="Hades" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Hades');">
+					<img src="Zeus.png" alt="Zeus" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Zeus');">
+				</fieldset>
+				<fieldset id = 'Japan_God_Selection' style="display:none;border:0px;">
+					<img src="temp.png" alt="Amaterasu" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Amaterasu');">
+					<img src="temp.png" alt="Jashin" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Jashin');">
+				</fieldset>
+				<fieldset id = 'China_God_Selection' style="display:none;border:0px;">
+					<img src="temp.png" alt="Lei King" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Lei King');">
+					<img src="temp.png" alt="Shui Khan" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Shui Khan');">
+				</fieldset>
+				<fieldset id = 'Egypt_God_Selection' style="display:none;border:0px;">
+					<img src="temp.png" alt="Rah" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Rah');">
+					<img src="temp.png" alt="Seth" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Seth');">
+				</fieldset>
+				<fieldset id = 'Scandinavia_God_Selection' style="display:none;border:0px;">
+					<img src="temp.png" alt="Thor" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Thor');">
+					<img src="temp.png" alt="Odin" style="width:100px;height:100px;" onclick = "parent.java.chosen_god('Odin');">
+				</fieldset>
+			</fieldset>
+			<form id = 'character_creation_form'  style="position:absolute;">
+				<fieldset id = 'Class_Selection' style="display:none;border:0px;">
+				  <p id="checklist"></p>
+				  <u>Class</u>
+				  <br>
+				  <input type="radio" id = 'opt_warrior' name="characterClass" value="warrior">Warrior
+				  <input type="radio" id = 'opt_sorcerer' name="characterClass" value="sorcerer">Sorcerer
+				  <input type="radio" id = 'opt_brawler' name="characterClass" value="brawler">Brawler
+				  <input type="radio" id = 'opt_healer' name="characterClass" value="healer">Healer
+				  <br><br>
+				  <u>Name</u><br>
+				  <input type="text" id = 'form_name' name="name" required><br>
+				  <input type="submit" value="Create Character" onclick = 'parent.java.create_Character(event)'>
+			  </fieldset>
+			</form>
+		</fieldset>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+         
+        <form id = 'Shop_items' name = 'Shop_items' style="display:none;border:0px;">
+            <div id="bg">
+                <img src="Arena_Battle_Background.jpeg" alt="">
+            </div><br>
+			<input id = 'buy_button' type = "button" value = "Buy" onclick = "parent.java.shop_Buy()" style = 'position:absolute;'><br>
+			<input id = 'sell_button' type = "button" value = "Sell" onclick = "parent.java.shop_Sell()" style = 'position:absolute;'><br>
+			<input id = 'profile_button' type = "button" value = "Profile" onclick = "parent.java.show_Profile()" style = 'position:absolute;'><br>
+            <select id = 'Shop' multiple name="ShopList" size="10" style = 'position:absolute;'>
+                <option value="empty">
+            </select>
+        </form>
+    </body>
+</html>

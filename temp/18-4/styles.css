@@ -1,0 +1,299 @@
+/*Battle*/#battle_buttons{
+	position: absolute;
+   top: 225px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#level_g{
+	position: relative;
+   top: 295px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#battle_log{
+	position: relative;
+   top: 315px;
+   left: 95px;
+   text-align: left;
+   width: 100%;
+}
+/*Battle*/#next_Phase_button{
+	position: absolute;
+   top: 315px;
+   left: 395px;
+   text-align: left;
+}
+/*Profile*/#battle_frame{
+	position: absolute;
+   top: 15px;
+   left: 295px;
+   text-align: left;
+}
+/*Battle*/#player_info{
+	position: absolute;
+   top: 15px;
+   left: 95px;
+   text-align: left;
+}
+/*Battle*/#player_health_bar{
+	position: absolute;
+   top: 155px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_stamina_bar{
+	position: absolute;
+   top: 175px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#player_mana_bar{
+	position: absolute;
+   top: 195px;
+   left: 95px;
+   text-align: center;
+}
+/*Battle*/#enemy0{
+	position: absolute;
+   top: 5px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy0_info{
+	position: absolute;
+   top: 15px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy0_health_bar{
+	position: absolute;
+   top: 160px;
+   left: 765px;
+   text-align: center;
+}
+/*Battle*/#enemy1{
+	position: absolute;
+   top: 5px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_info{
+	position: absolute;
+   top: 15px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy1_health_bar{
+	position: absolute;
+   top: 160px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy2{
+	position: absolute;
+   top: 250px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_info{
+	position: absolute;
+   top: 260px;
+   left: 510px;
+   text-align: center;
+}
+/*Battle*/#enemy2_health_bar{
+	position: absolute;
+   top: 410px;
+   left: 465px;
+   text-align: center;
+}
+/*Battle*/#enemy3{
+	position: absolute;
+   top: 250px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy3_info{
+	position: absolute;
+   top: 260px;
+   left: 810px;
+   text-align: center;
+}
+/*Battle*/#enemy3_health_bar{
+	position: absolute;
+   top: 410px;
+   left: 765px;
+   text-align: center;
+}
+#greece{
+	position: absolute;
+	top: 172px;
+	left: 115px;
+}
+#china{
+	position: absolute;
+	top: 610px;
+	left: 80px;
+}
+#egypt{
+	position: absolute;
+	top: 587px;
+	left: 570px;
+}
+#japan{
+	position: absolute;
+	top: 250px;
+	left: 440px;
+}
+#scandinavia{
+	position: absolute;
+	top: 120px;
+	left: 640px;
+}
+#sea_map{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#otherland{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#moving_player {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-image: url('default_avatar.gif');
+  background-size: 25px 25px;
+}
+#God_Selection{
+	position: absolute;
+    top: 260px;
+	left: 50px;
+}
+#tooltip_greece{
+	position: absolute;
+    top: 286px;
+	left: 260px;
+}
+#tooltip_japan{
+	position: absolute;
+    top: 350px;
+	left: 600px;
+}
+#tooltip_china{
+	position: absolute;
+    top: 650px;
+	left: 280px;
+}
+#tooltip_egypt{
+	position: absolute;
+    top: 667px;
+	left: 770px;
+}
+#tooltip_scandinavia{
+	position: absolute;
+	top: 220px;
+	left: 790px;
+}
+#tooltip_Country_selection_greece{
+	position: absolute;
+    top: 50px;
+	left: 50px;
+}
+#tooltip_Country_selection_japan{
+	position: absolute;
+    top: 100px;
+	left: 190px;
+}
+#tooltip_Country_selection_china{
+	position: absolute;
+    top: 88px;
+	left: 392px;
+}
+#tooltip_Country_selection_egypt{
+	position: absolute;
+    top: 109px;
+	left: 594px;
+}
+#tooltip_Country_selection_scandinavia{
+	position: absolute;
+	top: 50px;
+	left: 796px;
+}
+body{
+	background-color: #9B7714;
+    /*background-image: url('Arena_Battle_Background.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;*/
+}
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+#bg2 {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 100%; 
+  height: 100%;
+}
+#bg2 img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 25%;
+  min-height: 25%;
+}
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+	top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
