@@ -1,10 +1,18 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.23.1.css">
+        <meta charset="utf-8"/>
 	</head>
 	<body>
-		<fieldset id = "Start_of_Game_field" style="border:0px;">
-			<button onclick = "parent.java.show_Create_Character();">New Game</button>
+		<div id="qunit-fixture"></div>
+		<fieldset id = "Start_of_Game_field">
+            <div id="bg">
+                <img src="Arena_Battle_Background.jpeg" alt="">
+            </div>
+            <button style = 'position:absolute;' onclick = "parent.java.show_Create_Character();">New Game</button>
 		</fieldset>
+		<script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
 	</body>
 </html>

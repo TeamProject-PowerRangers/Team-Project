@@ -1,49 +1,55 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.23.1.css">
+        <meta charset="utf-8"/>
 	</head>
 	<body>
-		<fieldset id = "Battle_field" style="display:none;border:0px;">
-			<p id= "player_info"></p>
+		<div id="qunit-fixture"></div>
+		<fieldset id = "Battle_field" style="display:none;border:0px;position:absolute;">
+            <div id="bg">
+                <img src="Arena_Battle_Background.jpeg" alt="">
+            </div><br>
+			<p id= "player_info"></p><br>
 			<svg id = "player_health_bar" width="200" height="20">
 			  <rect id = "current_player_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
+			</svg><br>
 			<svg id = "player_stamina_bar" width="200" height="20">
 			  <rect id = "current_player_stamina_bar" width="200" height="20" 
 			  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
+			</svg><br>
 			<svg id = "player_mana_bar" width="200" height="20">
 			  <rect id = "current_player_mana_bar" width="200" height="20"
 			  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<p id= "enemy1_info"></p>
+			</svg><br>
+			<p id= "enemy1_info"></p><br>
 			<svg id = "enemy1_health_bar" width="200" height="20">
 			  <rect id = "current_enemy1_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<p id= "enemy2_info"></p>
+			</svg><br>
+			<p id= "enemy2_info"></p><br>
 			<svg id = "enemy2_health_bar" width="200" height="20">
 			  <rect id = "current_enemy2_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<p id= "enemy0_info"></p>
+			</svg><br>
+			<p id= "enemy0_info"></p><br>
 			<svg id = "enemy0_health_bar" width="200" height="20">
 			  <rect id = "current_enemy0_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<p id= "enemy3_info"></p>
+			</svg><br>
+			<p id= "enemy3_info"></p><br>
 			<svg id = "enemy3_health_bar" width="200" height="20">
 			  <rect id = "current_enemy3_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
+			</svg><br>
 			<form id= "battle_buttons">
 			<input type = "button" value = "Run" onclick = "parent.java.run_from_Battle()">
 			<input type = "button" value = "End Turn" onclick = "parent.java.next_Turn()">
 			<input type = "button" value = "Stamina Attack" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.staminaAttack)">
 			<input type = "button" value = "Mana Attack" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.manaAttack)">
 			<input type = "button" value = "Heal" onclick = "parent.java.Test(parent.java.player.classAttribute.attack.healAttack)"><br>
-			
 			<div>Time left: <span id="countdown" class="timer"></span> seconds!</div>
 			<p id= "turn"></p><br>
 			</form>
@@ -55,5 +61,6 @@
 			<input type=checkbox id= "enemy3" style="visibility:hidden">
 			<input type=checkbox id= "enemy0" style="visibility:hidden">
 		</fieldset>
+		<script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
 	</body>
 </html>

@@ -1,31 +1,36 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css">
-		</script>
+        <meta charset="utf-8"/>
 	</head>
 	<body>
 		 <fieldset id = "Profile_field" style="display:none;border:0px;">
-			<p>Profile</p>
-			<input type = "button" value = "Map" onclick = "parent.java.show_Map()">
-			<input type = "button" value = "Health" onclick = "parent.java.more_health()">
-            <input type = "button" value = "Attacks" onclick = "parent.java.show_Attack_Manager()"><br><br>
-			<svg id = "profile_health_bar" width="200" height="20">
+             <div id="bg">
+                <img src="Arena_Battle_Background.jpeg" alt="">
+            </div>
+			<p style="position:absolute;">Profile</p><br><br>
+			<input type = "button" style="position:absolute;" value = "Map" onclick = "parent.java.show_Map()"><br><br>
+			<input type = "button" style="position:absolute;" value = "Health" onclick = "parent.java.more_health()"><br><br>
+            <input type = "button" style="position:absolute;" value = "Attacks" onclick = "parent.java.show_Attack_Manager()"><br><br>
+			<svg id = "profile_health_bar" style="position:absolute;" width="200" height="20">
 			  <rect id = "current_profile_player_health_bar" width="200" height="20" 
 			  style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<div>+10 Health in: <span id="h_countdown" class="timer"></span></div>
-			<svg id = "profile_stamina_bar" width="200" height="20">
+			</svg><br>
+			<div style="position:absolute;">+10 Health in: <span id="h_countdown" class="timer"></span></div><br>
+			<svg  style="position:absolute;" id = "profile_stamina_bar" width="200" height="20">
 			  <rect id = "current_profile_player_stamina_bar" width="200" height="20" 
 			  style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<div>+10 Stamina in: <span id="s_countdown" class="timer"></span></div>
-			<svg id = "profile_mana_bar" width="200" height="20">
+			</svg><br>
+			<div style="position:absolute;">+10 Stamina in: <span id="s_countdown" class="timer"></span></div><br>
+			<svg id = "profile_mana_bar" style="position:absolute;" width="200" height="20">
 			  <rect id = "current_profile_player_mana_bar" width="200" height="20"
 			  style = "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
-			</svg>
-			<div>+10 Mana in : <span id="m_countdown" class="timer"></span></div>
-		</fieldset><br><br>
-        <fieldset id = "attack_manager_field" style="display:none;border:0px;">
+			</svg><br>
+			<div style="position:absolute;">+10 Mana in : <span id="m_countdown" class="timer"></span></div>
+			</fieldset><br><br>
+        <input style="position:absolute;" id = 'shop_button' type = "button" value = "Shop" onclick = "parent.java.show_Shop()"><br>
+        <fieldset id = "attack_manager_field" style="display:none;border:0px;position:absolute;">
             <form id = 'attack_type_form'>
                 <input type="radio" id = 'opt_stamina' name="staminaAttack" value="stamina">staminaAttack
                 <input type="radio" id = 'opt_mana' name="manaAttack" value="mana">manaAttack
@@ -41,6 +46,7 @@
                 <select id = 'skills' multiple name="lstValue" size="5">
                 <option value="empty"></select>
             </form>
+            <input id = 'confirm_button' type = "button" value = "Change attack" style="display:none;border:0px;" onclick = "parent.java.attack_Manager()">
         </fieldset>
 	</body>
 </html>

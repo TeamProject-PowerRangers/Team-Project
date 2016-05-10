@@ -1,3 +1,208 @@
+//ITEMS
+
+function list_of_all_Items(){ // Καρανικόλας 100362082
+    this.weapons = [];
+    this.armor = [];
+    this.potions = [];
+    this.collectibles = [];
+    
+    this.weapons[0] = {
+        name: 'Warrior\'s Weapon',
+		attack: 50,
+		type: 'warrior',
+        price: 40
+    };
+    this.weapons[1] = {
+        name: 'Healer\'s Weapon',
+		attack: 50,
+		type: 'brawler',
+        price: 40
+    };
+    this.weapons[2] = {
+        name: 'Sorcerer\'s Weapon',
+		attack: 50,
+		type: 'sorcerer',
+        price: 40
+    };
+    this.weapons[3] = {
+        name: 'Brawler\'s Weapon',
+		attack: 50,
+		type: 'healer',
+        price: 40
+    };
+    
+    
+    this.armor[0] = {
+        name: 'Warrior\'s Armor',
+		defence: 50,
+		type: 'warrior',
+        price: 70
+    };
+    this.armor[1] = {
+        name: 'Brawler\'s Armor',
+		defence: 50,
+		type: 'brawler',
+        price: 70
+    };
+    this.armor[2] = {
+        name: 'Sorcerer\'s Armor',
+		defence: 50,
+		type: 'sorcerer',
+        price: 70
+    };
+    this.armor[3] = {
+        name: 'Healer\'s Armor',
+		defence: 50,
+		type: 'healer',
+        price: 70
+    };
+    
+    
+    this.potions[0] = {
+        name: 'HP Potion',
+		effect: 100,
+		type: 'health',
+        price: 100
+    };
+    this.potions[1] = {
+        name: 'Mana Potion',
+		effect: 80,
+		type: 'mana',
+        price: 100
+    };
+    this.potions[2] = {
+        name: 'Stamina Potion',
+		effect: 90,
+		type: 'stamina',
+        price: 100
+    };
+    this.potions[3] = {
+        name: 'Moves Potion',
+		effect: 2,
+		type: 'moves',
+        price: 100
+    };
+    
+    
+    this.collectibles[0] = {
+        name: 'collectible #1',
+        price: 40
+    };
+    this.collectibles[1] = {
+        name: 'collectible #2',
+        price: 80
+    };
+    this.collectibles[2] = {
+        name: 'collectible #3',
+        price: 60
+    };
+    this.collectibles[3] = {
+        name: 'collectible #4',
+        price: 160
+    };
+    this.collectibles[4] = {
+        name: 'collectible #5',
+        price: 150
+    };
+    this.collectibles[5] = {
+        name: 'collectible #6',
+        price: 200
+    };
+}
+
+//shop// Καρανικόλας 100362082
+function show_Shop(){
+	parent.profile.document.getElementById('Profile_field').style.display = 'none';
+	parent.shop.document.getElementById('Shop_items').style.display = '';
+    parent.document.getElementById('game_frames').cols = '10%,0%,0%,0%,0%,0%,90%,0%';
+}
+// Καρανικόλας 100362082
+var shop_list_option = 0;
+var items_for_Sale = new list_of_all_Items();
+
+for(items_in_shop = 0; items_in_shop < 6; items_in_shop++){
+	shop_List(items_for_Sale.collectibles[items_in_shop].name);
+}
+for(items_in_shop = 0; items_in_shop < 4; items_in_shop++){
+	shop_List(items_for_Sale.potions[items_in_shop].name);
+}
+for(items_in_shop = 0; items_in_shop < 4; items_in_shop++){
+	shop_List(items_for_Sale.armor[items_in_shop].name);
+}
+for(items_in_shop = 0; items_in_shop < 4; items_in_shop++){
+	shop_List(items_for_Sale.weapons[items_in_shop].name);
+}
+// Καρανικόλας 100362082
+function shop_List(Item_name){
+	var itemOptions = parent.shop.document.getElementById("Shop");
+	var option = parent.shop.document.createElement("option");
+	option.text = Item_name;
+	itemOptions.add(option);
+	//return true;
+}
+// Καρανικόλας 100362082
+var inventory_count = 0;
+function shop_Buy(){
+    
+    var selected_item = parent.shop.document.getElementById('Shop').selectedIndex;
+    var itemOptions = parent.shop.document.getElementById('Shop').options;
+    if(selected_item){
+		var item_name = itemOptions[selected_item].text;
+		var inventoryOptions = parent.inventory.document.getElementById("Inventory");
+		var option = parent.profile.document.createElement("option");
+		option.text = item_name;
+		inventoryOptions.add(option);
+		gold -= 0;
+    }
+}
+// Καρανικόλας 100362082
+function shop_Sell(){
+    remove_item();
+    gold += 0 ;
+}
+// Καρανικόλας 100362082
+function remove_item(){
+	var selected_item = parent.inventory.document.getElementById('Inventory');
+    selected_item.remove(selected_item.selectedIndex);
+}
+// Καρανικόλας 100362082
+var mi_used = false;
+function inventory_Use(){
+	var selected_item = parent.inventory.document.getElementById('Inventory').selectedIndex;
+    var itemOptions = parent.inventory.document.getElementById('Inventory').options;
+	if(selected_item){
+		var item_name = itemOptions[selected_item].text;
+		var chosen_item_effect = 0;
+		var chosen_item_type = '';
+		for(i = 0; i < 4; i++){
+			if(item_name == items_for_Sale.potions[i].name){
+				chosen_item_effect = items_for_Sale.potions[i].effect;
+				chosen_item_type = items_for_Sale.potions[i].type;
+			}
+		}
+		
+		if(chosen_item_type == 'moves'){
+			if(parent.battle.document.getElementById("Battle_field").style.display == "" && mi_used == false){
+				round_Moves += chosen_item_effect;
+				mi_used = true;
+			}else if(mi_used == true){
+				alert('You can only use one Move potion per turn.');
+			}else if(parent.battle.document.getElementById("Battle_field").style.display == "none"){
+				alert('You can only use it during Battle.');
+			}
+		}else if(chosen_item_type == 'mana'){
+			current_player_mana += chosen_item_effect;
+		}else if(chosen_item_type == 'health'){
+			current_player_health += chosen_item_effect;
+		}else if(chosen_item_type == 'stamina'){
+			current_player_stamina += chosen_item_effect;
+		}
+		remove_item();
+    }
+	stats_R();
+}
+
+//CHARACTER //ΟΧΙ
 function character(name,level,defence,strength,willPower,intelligence,speed,experiencePoints,weaponryDefence,weaponryOffence,sorcererDefence,brawlerDefence,sorcererOffence,brawlerOffence,country,god,skillpoint,weaponEquip){
 	this.name = name;
 	this.god = god;
@@ -21,7 +226,7 @@ function character(name,level,defence,strength,willPower,intelligence,speed,expe
 }
 
 function classType(type,healthPoints,mana,stamina){
-	this.Class = type;
+    this.Class = type;
 	this.HP = healthPoints;
 	this.mana = mana;
 	this.stamina = stamina;
@@ -29,13 +234,13 @@ function classType(type,healthPoints,mana,stamina){
 }
 //attacks
 function available_Attacks(staminaAttack,manaAttack,healAttack){
-	this.staminaAttack = staminaAttack;
+    this.staminaAttack = staminaAttack;
 	this.manaAttack = manaAttack;
 	this.healAttack = healAttack;
 }
 //skills
 function skills_List(){
-	this.warrior = new Array(5);
+    this.warrior = [];
 	this.warrior[0] = {
 		name: 'sword slash',
 		attack: 50,
@@ -72,7 +277,7 @@ function skills_List(){
 		type: 'warrior'
 	};
 	
-	this.sorcerer = new Array(5);
+	this.sorcerer = [];
 	this.sorcerer[0] = {
 		name: 'Mana attack',
 		attack: 50,
@@ -109,7 +314,7 @@ function skills_List(){
 		type: 'sorcerer'
 	};
 	
-	this.brawler = new Array(5);
+	this.brawler = [];
 	this.brawler[0] = {
 		name: 'fist',
 		attack: 50,
@@ -146,7 +351,7 @@ function skills_List(){
 		type: 'brawler'
 	};
 	
-	this.healer = new Array(5);
+	this.healer = [];
 	this.healer[0] = {
 		name: 'Healing self',
 		attack: 50,
@@ -186,12 +391,12 @@ function skills_List(){
 var player = new character('',0,0,0,0,0,0,0,0,0,0,0,0,0,'','',0,false);
 var skillsSet = new skills_List();
 //character creation
-function show_Create_Character()
+function show_Create_Character()// Καρανικόλας 100362082
 {
 	parent.start.document.getElementById('Start_of_Game_field').style.display = 'none';
 	parent.character.document.getElementById('Character_creation_field').style.display = '';
 	parent.character.document.getElementById('Country_Selection').style.display = '';
-	parent.document.getElementById('game_frames').cols = '0%,100%,0%,0%,0%';
+	parent.document.getElementById('game_frames').cols = '10%,0%,90%,0%,0%,0%,0%';
 }
 
 function chosen_country(scountry){
@@ -270,6 +475,12 @@ function create_Character(e){
 		player.classAttribute.attack.manaAttack = skillsSet.sorcerer[0].name;
 		player.classAttribute.attack.healAttack = skillsSet.healer[0].name;
 		
+		var item_name = 'Warrior\'s Weapon';// Καρανικόλας 100362082
+		var inventoryOptions = parent.inventory.document.getElementById("Inventory");
+		var option = parent.profile.document.createElement("option");
+		option.text = item_name;
+		inventoryOptions.add(option);
+		
 		player.classAttribute.HP = 180;
 		player.classAttribute.stamina = 200;
 		player.classAttribute.mana = 100;
@@ -282,6 +493,12 @@ function create_Character(e){
 		player.classAttribute.attack.manaAttack = skillsSet.sorcerer[0].name;
 		player.classAttribute.attack.healAttack = skillsSet.healer[0].name;
 		
+		var item_name = 'Sorcerer\'s Weapon';// Καρανικόλας 100362082
+		var inventoryOptions = parent.inventory.document.getElementById("Inventory");
+		var option = parent.profile.document.createElement("option");
+		option.text = item_name;
+		inventoryOptions.add(option);
+				
 		player.classAttribute.HP = 150;
 		player.classAttribute.stamina = 150;
 		player.classAttribute.mana = 250;
@@ -293,6 +510,12 @@ function create_Character(e){
 		player.classAttribute.attack.staminaAttack = skillsSet.brawler[0].name;
 		player.classAttribute.attack.manaAttack = skillsSet.sorcerer[0].name;
 		player.classAttribute.attack.healAttack = skillsSet.healer[0].name;
+		
+		var item_name = 'Brawler\'s Weapon';// Καρανικόλας 100362082
+		var inventoryOptions = parent.inventory.document.getElementById("Inventory");
+		var option = parent.profile.document.createElement("option");
+		option.text = item_name;
+		inventoryOptions.add(option);
 		
 		player.classAttribute.HP = 200;
 		player.classAttribute.stamina = 200;
@@ -306,6 +529,12 @@ function create_Character(e){
 		player.classAttribute.attack.manaAttack = skillsSet.sorcerer[0].name;
 		player.classAttribute.attack.healAttack = skillsSet.healer[0].name;
 		
+		var item_name = 'Healer\'s Weapon';// Καρανικόλας 100362082
+		var inventoryOptions = parent.inventory.document.getElementById("Inventory");
+		var option = parent.profile.document.createElement("option");
+		option.text = item_name;
+		inventoryOptions.add(option);
+		
 		player.classAttribute.HP = 280;
 		player.classAttribute.stamina = 150;
 		player.classAttribute.mana = 200;
@@ -318,12 +547,14 @@ function create_Character(e){
 	player.intelligence = 10;
 	player.level = 1;
 	
-	player.weaponryOffence = 10;
+	player.weaponryOffence = 50;
 	player.brawlerOffence = 10;
 	player.sorcererOffence = 10;
 	player.brawlerDefence = 10;
 	player.sorcererDefence = 10;
-	player.weaponryDefence = 10;
+	player.weaponryDefence = 40;
+	
+	player.weaponEquip = true;
 	
 	player.experiencePoints = 0;
 	
@@ -333,20 +564,23 @@ function create_Character(e){
 	show_Profile();
 }
 
-function show_Profile(){
+function show_Profile(){// Καρανικόλας 100362082
 	parent.start.document.getElementById('Start_of_Game_field').style.display = 'none';
 	parent.character.document.getElementById('Character_creation_field').style.display = 'none';
 	parent.map.document.getElementById('Map_field').style.display = 'none';
 	parent.battle.document.getElementById('Battle_field').style.display = 'none';
+	parent.shop.document.getElementById('Shop_items').style.display = 'none';
 	parent.profile.document.getElementById('Profile_field').style.display = '';
-	parent.document.getElementById('game_frames').cols = '0%,0%,100%,0%,0%';
+	parent.document.getElementById('game_frames').cols = '10%,0%,0%,90%,0%,0%,0%';
 	refillBars();
 }
 
 function show_Attack_Manager(){
     parent.profile.document.getElementById('attack_manager_field').style.display = '';
 }
+
 var skill_list_option = 0;
+
 function addSkilltoList(skillname) {
     var v = skillname;
     addSkill = new Option(v, v);
@@ -365,6 +599,7 @@ function load_next_Form(e,form_id_prev,form_id_next){
         }else if(parent.profile.document.getElementById('opt_mana').checked){
             parent.profile.document.getElementById('opt_mana').checked = false;
             form_id_next = 'set_attacks';
+            attack_type = 'mana';
             for(k = 0; k < player.level; k++){
                 if(k < 5){
                     addSkilltoList(skillsSet.sorcerer[k].name);
@@ -375,6 +610,7 @@ function load_next_Form(e,form_id_prev,form_id_next){
         }else if(parent.profile.document.getElementById('opt_heal').checked){
             parent.profile.document.getElementById('opt_heal').checked = false;
             form_id_next = 'set_attacks';
+            attack_type = 'heal';
             for(k = 0; k < player.level; k++){
                 if(k < 5){
                     addSkilltoList(skillsSet.healer[k].name);
@@ -385,6 +621,7 @@ function load_next_Form(e,form_id_prev,form_id_next){
         }else if(parent.profile.document.getElementById('opt_warrior').checked){
             parent.profile.document.getElementById('opt_warrior').checked = false;
             form_id_next = 'set_attacks';
+            attack_type = 'stamina';
             for(k = 0; k < player.level; k++){
                 if(k < 5){
                     addSkilltoList(skillsSet.warrior[k].name);
@@ -395,6 +632,7 @@ function load_next_Form(e,form_id_prev,form_id_next){
         }else if(parent.profile.document.getElementById('opt_brawler').checked){
             parent.profile.document.getElementById('opt_brawler').checked = false;
             form_id_next = 'set_attacks';
+            attack_type = 'stamina';
             for(k = 0; k < player.level; k++){
                 if(k < 5){
                     addSkilltoList(skillsSet.brawler[k].name);
@@ -404,7 +642,26 @@ function load_next_Form(e,form_id_prev,form_id_next){
             
         }
     }
+    if(form_id_next == 'set_attacks'){
+        parent.profile.document.getElementById('confirm_button').style.display = '';
+    }
     parent.profile.document.getElementById(form_id_next).style.display = '';
+}
+
+var attack_type = '';
+function attack_Manager(){
+    var new_attack = parent.profile.document.getElementById('skills').selectedIndex;
+    var skillTree = parent.profile.document.getElementById('skills').options;
+    
+    if(new_attack){
+        if(attack_type == 'mana'){
+            player.classAttribute.attack.manaAttack = skillTree[new_attack].text;
+        }else if(attack_type == 'stamina'){
+            player.classAttribute.attack.staminaAttack = skillTree[new_attack].text;
+        }else if(attack_type == 'heal'){
+            player.classAttribute.attack.healAttack =skillTree[new_attack].text;
+        }
+    }
 }
 
 function more_health(){
@@ -518,16 +775,16 @@ function refillBars() {
 var countdownBars = setInterval('refillBars()', 1000);
 
 //BATTLE
-
+// Καρανικόλας 100362082
 function show_Battle(){
 	parent.profile.document.getElementById("Profile_field").style.display = "none";
 	parent.map.document.getElementById("Map_field").style.display = "none";
 	initBattle();
 	parent.battle.document.body.style.backgroundColor = "#AAAAAA";
 	parent.battle.document.getElementById("Battle_field").style.display = "";
-	parent.document.getElementById('game_frames').cols = '0%,0%,0%,0%,100%';
+	parent.document.getElementById('game_frames').cols = '10%,0%,0%,0%,0%,90%,0%';
 }
-function initBattle(){
+function initBattle(){// Καρανικόλας 100362082
 	for(i = 0; i < 4; i++){
 		enemylife[i] = 'dead';
 	}
@@ -630,11 +887,11 @@ function initBattle(){
 }
 var ex_level = "";
 var experience = 0;
-function exp_Points(){
+function exp_Points(){//ΟΧΙ
 	experience = experience + (ex_level*67/* επι  bonus*/);
 }
 
-function level_up(){
+function level_up(){//ΟΧΙ
 	
 	player.experiencePoints += experience;
 	var lv_x = 0;
@@ -675,7 +932,7 @@ function level_up(){
 	parent.battle.document.getElementById('level_g').innerHTML += "<br>" + "Experience: " + player.experiencePoints + "/" + lv_x * 1500+'<br>Gold: '+ gold;
 	parent.battle.document.getElementById('level_g').style.visibility = "visible";
 }
-function create_enemy(i){
+function create_enemy(i){// Καρανικόλας 100362082
 	if (enemyCount[i].classAttribute.Class == 'warrior') {
 		
 		enemyCount[i].classAttribute.attack.staminaAttack = skillsSet.warrior[0].name;
@@ -744,25 +1001,27 @@ var current_player_health = 0;
 var current_player_stamina = 0;
 var current_player_mana = 0;
 
-var enemylife = new Array(4);
+var enemylife = [];
 for(i = 0; i < 4; i++){
 	enemylife[i] = 'dead';
 }
 
-var enemyCount = new Array(4);
+var enemyCount = [];
 for(i = 0; i < 4; i++){
-	enemyCount[i] = new character('enemy',0,0,0,0,0,0,0,0,0,0,0,0,0,'','',0,false);
+	enemyCount[i] = new character('enemy',0,0,0,0,0,0,0,0,0,0,0,0,0,'','',0,true);
 }
 
-var original_enemy_Att = new Array(4);
+var original_enemy_Att = [];
 
-var choice = new Array(4);
+var choice = [];
 for(i = 0; i < 4; i++){
 	choice[i] = false;
 }
 
+var attacked = [];
+
 var player_turn = true;
-function Test(chosen_attack){
+function Test(chosen_attack){//ΟΧΙ
 	var chosen_attack_cost = 0;
 	var chosen_attack_stamina_or_mana = 0;
 	var chosen_attack_type = '';
@@ -818,7 +1077,7 @@ function Test(chosen_attack){
 		}
 	}
 }
-
+//ΟΧΙ
 function playerHeal(chosen_attack,chosen_attack_cost,chosen_attack_stamina_or_mana,chosen_attack_type,chosen_attack_damage){
 	var bool = false;
 	round_Moves -= chosen_attack_cost;
@@ -833,7 +1092,8 @@ function playerHeal(chosen_attack,chosen_attack_cost,chosen_attack_stamina_or_ma
 	}
 	stats_R();
 }
-
+var last_Attack = 0;
+// Καρανικόλας 100362082
 function damage_PlayerVsEnemy(chosen_attack,chosen_attack_cost,chosen_attack_stamina_or_mana,chosen_attack_type,chosen_attack_damage){
 	var bool = false;
 	var ch_counter = 0;
@@ -897,6 +1157,7 @@ function damage_PlayerVsEnemy(chosen_attack,chosen_attack_cost,chosen_attack_sta
 					round_damage = damage_Calc(chosen_attack_type,chosen_attack_damage,enemyCount[i],player); 
 					enemyCount[i].classAttribute.HP -= round_damage;
                     damage_dealt += round_damage;
+					last_Attack = round_damage;
 					round_Moves -= chosen_attack_cost;
 				}
 			}
@@ -934,7 +1195,7 @@ function damage_PlayerVsEnemy(chosen_attack,chosen_attack_cost,chosen_attack_sta
 }
 
 var gold;
-
+//ΟΧΙ
 function damage_Calc(chosen_attack_type,chosen_attack_damage,attack_target,attacker){
         var damage = 0;
         
@@ -1035,15 +1296,18 @@ function damage_Calc(chosen_attack_type,chosen_attack_damage,attack_target,attac
 var log = "";
 var damage_dealt = 0;
 
-function end_Round_log(){
+function end_Round_log(){// Καρανικόλας 100362082
 	log += "<br>Round: " + (counter-1) + "<br>Damage: " + damage_dealt;
 	parent.battle.document.getElementById('battle_log').innerHTML = log; 
 }
-
-function next_Turn(){
+var eAttack = 0;
+function next_Turn(){// Καρανικόλας 100362082
     run_attempt = false;
 	player_turn = false;
-	var eAttack = 0;
+	for(z = 0; z < rEnemies; z++){
+		attacked[z] = false;
+	}
+	eAttack = 0;
 	counter++;
 	parent.battle.document.getElementById("turn").innerHTML = "Round(s): " + counter;
 	
@@ -1064,56 +1328,106 @@ function next_Turn(){
 	}
 	//enemies attack
 	for(k = 0; k < rEnemies; k++){
-        var tempDamage;
-		eAttack = Math.floor((Math.random() * 3) + 1);
-		if(eAttack == 1){
-			var enemyAttack = new Test(enemyCount[k].classAttribute.attack.manaAttack);
-			if(enemyCount[k].classAttribute.stamina >= 0){
+		attacked[k] = true;
+		if(enemylife[k] == 'alive'){
+			var tempDamage;
+			if (enemyCount[k].classAttribute.Class == 'warrior' || enemyCount[k].classAttribute.Class == 'brawler' && enemyCount[k].classAttribute.stamina > 0){
+				var enemyAttack = new Test(enemyCount[k].classAttribute.attack.manaAttack);
+				if(enemyCount[k].classAttribute.stamina >= enemyAttack.chosen_attack_stamina_or_mana){
+					eAttack = 1;
+					console.log(eAttack);
+				}else{
+					eAttack = 2;
+				}
+			}else{
+				if(enemyCount[k].classAttribute.mana > 0){
+					var enemyAttack = new Test(enemyCount[k].classAttribute.attack.staminaAttack);
+					if(enemyCount[k].classAttribute.mana >= enemyAttack.chosen_attack_stamina_or_mana){
+						eAttack = 2;
+						console.log(eAttack);
+					}else{
+						eAttack = 1;
+					}
+				}
+			}
+			if (enemyCount[k].classAttribute.mana > 0){
+				var enemyHeal = new Test(enemyCount[k].classAttribute.attack.healAttack);
+				tempHealing = damage_Calc(enemyHeal.chosen_attack_type,enemyHeal.chosen_attack_damage,enemyCount[k],enemyCount[k]);
+				heal_Target = healTarget(tempHealing,k,enemyHeal);
+			}
+			if(eAttack == 1 ){
 				tempDamage = damage_Calc(enemyAttack.chosen_attack_type,enemyAttack.chosen_attack_damage,player,enemyCount[k]);
 				enemyCount[k].classAttribute.stamina -= enemyAttack.chosen_attack_stamina_or_mana;
-                current_player_health -= tempDamage;
-			}
-		}else if(eAttack == 2){
-			var enemyAttack = new Test(enemyCount[k].classAttribute.attack.staminaAttack);
-			if(enemyCount[k].classAttribute.mana >= 0){
+				current_player_health -= tempDamage;
+				console.log(current_player_health);
+				
+			}else if(eAttack == 2){
 				tempDamage = damage_Calc(enemyAttack.chosen_attack_type,enemyAttack.chosen_attack_damage,player,enemyCount[k]);
 				enemyCount[k].classAttribute.mana -= enemyAttack.chosen_attack_stamina_or_mana;
 				current_player_health -= tempDamage;
+				console.log(current_player_health);
+				
+			}else if(eAttack == 3){
+				enemyCount[k].classAttribute.mana -= enemyHeal.chosen_attack_stamina_or_mana;
+				heal_Target.classAttribute.HP += tempHealing;
+				console.log(heal_Target.classAttribute.HP);
 			}
-		}else if(eAttack == 3){
-			var enemyAttack = new Test(enemyCount[k].classAttribute.attack.healAttack);
-			if(enemyCount[k].classAttribute.mana >= 0){
-				tempDamage = damage_Calc(enemyAttack.chosen_attack_type,enemyAttack.chosen_attack_damage,enemyCount[k],enemyCount[k]);
-				enemyCount[k].classAttribute.mana -= enemyAttack.chosen_attack_stamina_or_mana;
-				enemyCount[k].classAttribute.HP += tempDamage;
+			if(current_player_health <= 0){
+				current_player_health = 0;
+				alert('You Lost.');
+				battle = "over";
+				parent.battle.document.getElementById('player_info').style.visibility = "hidden";
+				parent.battle.document.getElementById("current_player_stamina_bar").style.visibility = "hidden";
+				parent.battle.document.getElementById("current_player_health_bar").style.visibility = "hidden";
+				parent.battle.document.getElementById("current_player_mana_bar").style.visibility = "hidden";
+				parent.battle.document.getElementById("battle_buttons").style.visibility = "hidden";
+				
+				for(i = 0; i < rEnemies; i++){
+					parent.battle.document.getElementById("enemy"+i+"_info").style.visibility = "hidden";
+					parent.battle.document.getElementById("enemy"+i).style.visibility = "hidden";
+					parent.battle.document.getElementById("current_enemy"+i+"_health_bar").style.visibility = "hidden";
+					enemylife[i] = 'dead';
+				}
+				
+				parent.battle.document.getElementById("next_Phase_button").style.visibility = "visible";
+				level_up();
 			}
-		}
-		if(current_player_health <= 0){
-			current_player_health = 0;
-			alert('You Lost.');
-			battle = "over";
-			parent.battle.document.getElementById('player_info').style.visibility = "hidden";
-			parent.battle.document.getElementById("current_player_stamina_bar").style.visibility = "hidden";
-			parent.battle.document.getElementById("current_player_health_bar").style.visibility = "hidden";
-			parent.battle.document.getElementById("current_player_mana_bar").style.visibility = "hidden";
-			parent.battle.document.getElementById("battle_buttons").style.visibility = "hidden";
-			
-			for(i = 0; i < rEnemies; i++){
-				parent.battle.document.getElementById("enemy"+i+"_info").style.visibility = "hidden";
-				parent.battle.document.getElementById("enemy"+i).style.visibility = "hidden";
-				parent.battle.document.getElementById("current_enemy"+i+"_health_bar").style.visibility = "hidden";
-				enemylife[i] = 'dead';
-			}
-			
-			parent.battle.document.getElementById("next_Phase_button").style.visibility = "visible";
-			level_up();
 		}
 	}
 	stats_R();
 	player_turn = true;
+	mi_used = false;
 }
 
-function stats_R(){
+function healTarget(tempHealing,k,enemyHeal){//Καρανικολας 100362082
+	var lastToAttack = true;
+	for(m = 0; m < rEnemies; m++){
+		if(!attacked[m]){
+			lastToAttack = false;
+		}
+	}
+	if (lastToAttack){
+		var tempHealth = enemyCount[k].classAttribute.HP + tempHealing;
+		if(current_player_health > enemyHeal.chosen_attack_damage && enemyCount[k].classAttribute.HP <= last_Attack && tempHealth > last_Attack && enemyCount[k].classAttribute.mana >= enemyHeal.chosen_attack_stamina_or_mana){
+			eAttack = 3;
+			console.log(eAttack);
+			console.log(enemyCount[k]);
+			return enemyCount[k];
+		}
+		else{
+			for(y = 0; y < rEnemies; y++){
+				var tempHealth = enemyCount[y].classAttribute.HP + tempHealing;
+				if(current_player_health > enemyHeal.chosen_attack_damage && enemyCount[y].classAttribute.HP <= last_Attack && tempHealth > last_Attack && enemyCount[k].classAttribute.mana >= enemyHeal.chosen_attack_stamina_or_mana){
+					eAttack = 3;
+					console.log(enemyCount[y]);
+					return enemyCount[y];
+				}
+			}
+		}
+	}
+}
+
+function stats_R(){//ΟΧΙ
 	var ph = (200*current_player_health)/player.classAttribute.HP;
 	var ps = (200*current_player_stamina)/player.classAttribute.stamina;
 	var pm = (200*current_player_mana)/player.classAttribute.mana;
@@ -1142,7 +1456,7 @@ function stats_R(){
 }
 
 var seconds = 60;
-function secondPassed() {
+function secondPassed() {//ΟΧΙ
     var minutes = Math.round((seconds - 30)/60);
     var remainingSeconds = seconds % 60;
     if (remainingSeconds < 10) {
@@ -1165,7 +1479,7 @@ function secondPassed() {
  
 var countdownTimer = setInterval('secondPassed()', 1000);
 var run_attempt = false;
-function run_from_Battle(){
+function run_from_Battle(){//ΟΧΙ
     var run = 1;
     run *= player.speed;
     
@@ -1231,7 +1545,7 @@ function run_from_Battle(){
     }
 }
 
-function next_Phase(){
+function next_Phase(){//Καρανικόλας 100362082
 	for(i = 0; i < 4; i++){
 		var id_shown = "enemy"+i+"_info";
 		parent.battle.document.getElementById(id_shown).style.visibility = "hidden";
@@ -1256,13 +1570,13 @@ function next_Phase(){
 
 //MAP
 
-function show_Map(){
+function show_Map(){//Καρανικόλας 100362082
 	parent.start.document.getElementById('Start_of_Game_field').style.display = 'none';
 	parent.character.document.getElementById('Character_creation_field').style.display = 'none';
 	parent.battle.document.getElementById('Battle_field').style.display = 'none';
 	parent.profile.document.getElementById('Profile_field').style.display = 'none';
 	parent.map.document.getElementById('Map_field').style.display = '';
-	parent.document.getElementById('game_frames').cols = '0%,0%,0%,100%,0%';
+	parent.document.getElementById('game_frames').cols = '10%,0%,0%,0%,90%,0%,0%';
 	
 	parent.map.document.body.style.backgroundColor = "#000033";
 	
@@ -1280,7 +1594,7 @@ function show_Map(){
 		parent.map.document.getElementById("Map_field").style.display = "";
 	}
 }
-function initMap(){
+function initMap(){//Καρανικόλας 100362082
 	var elem = parent.map.document.getElementById("moving_player");
 	elem.style.top = playerY + 'px'; 
 	elem.style.left = playerX + 'px'; 
@@ -1309,8 +1623,8 @@ for (i = 0; i <= 151; i++){
 	for (j = 0; j <= 200; j++){
 		y = 120 + j;
 		x = 640 + i;
-		scandinavia_cX = x;
-		scandinavia_cY = y;
+		scandinavia_cX[i] = x;
+		scandinavia_cY[i] = y;
 	}
 }
 for (i = 0; i <= 138; i++){
@@ -1348,7 +1662,7 @@ for (i = 0; i <= 200; i++){
 
 var land = false;
 var destination = '';
-function travellingPlayer(countryX,countryY,new_destination){
+function travellingPlayer(countryX,countryY,new_destination){//Καρανικόλας 100362082
 	destination = new_destination;
 	var tempCountryX = countryX;
 	var tempCountryY = countryY;
@@ -1406,7 +1720,7 @@ function travellingPlayer(countryX,countryY,new_destination){
 	}
 }
 
-function newDestination(obst){
+function newDestination(obst){//Καρανικόλας 100362082
 	var cX = 0;
 	var cY = 0;
 	var _width = 0;
@@ -1472,7 +1786,7 @@ function newDestination(obst){
 	};
 }
 
-function overlap_Land(destination){
+function overlap_Land(destination){//Καρανικόλας 100362082
 	var bool = false;
 	var newDestX = 0;
 	var newDestY = 0;
